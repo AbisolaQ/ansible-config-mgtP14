@@ -1,0 +1,5 @@
+---
+- hosts: db
+  roles:
+   - ansible-config-mgt/static-assignments/db.yml
+  become: true

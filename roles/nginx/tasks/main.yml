@@ -1,0 +1,31 @@
+---
+# tasks file for nginx
+- name: install nginx on the webserver
+  become: yes
+  apt:
+    name: nginx
+    state: present
+
+- name: ensure nginx is started and enabled
+  become: yes
+  service:
+    name: nginx
+    state: started
+
+
+- name: insert configuration file in server block
+  become: yes
+  blockinfile:
+    path: /etc/nginx/nginx.conf
+    block: "{{ lookup('file', '../templates/nginx.conf' ) }}"
+    insertafter: "http {"
+
+
+- name: Comment out site-enabled
+  become: yes
+  replace:
+    path: /etc/nginx/nginx.conf
+    regexp: '(.*enabled.*)'
+    replace: '#\1'
+
+  notify: Restart nginx service
