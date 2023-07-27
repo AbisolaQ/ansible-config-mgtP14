@@ -148,14 +148,63 @@ step 33: set up playbook/site.yml
 ![Alt text](Images_P14/playbook-setup.png)
 
 step 34: We push to github and then click on "scan repository now" the ansible-config-mgt on the jenikins UI. The ansible-config_mgt repository is scanned for any branch that has a Jenkinsfile and then builds.
-![Alt text](Images_P14/Ansible-build-success1.png)
+![!\[Alt text\](Images_P14/Ansible-build-success1.png)](Images_P14/Ansible-build-success.png)
 
 step 35: PARAMETERIZING 'Jenkinsfile' FOR ANSIBLE DEPLOYMENT
 
 To deploy to other environments, we will need to use parameters.
 
 Update Jenkinsfile to introduce parameterization. Below is just one parameter. It has a default value in case if no value is specified at execution. It also has a description so that everyone is aware of its purpose.
+pipeline {
+    agent any
 
+    parameters {
+      string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
+    }
 
 In the Ansible execution section, remove the hardcoded inventory/dev and replace with '${inventory}'
+
+![Alt text](Images_P14/Ansible-build-success.png)
+
+CI/CD PIPELINE FOR TODO APPLICATION
+We already have tooling website as a part of deployment through Ansible. Here we will introduce another PHP application to add to the list of software products we are managing in our infrastructure.This particular application is an ideal application to show an end-to-end CI/CD pipeline.
+
+Our goal here is to deploy the application onto servers directly from Artifactory rather than from github.
+
+Clone the PHP-Todo repository from github
+
+$ git clone https://github.com/darey-devops/php-todo.git
+
+![Alt text](Images_P14/fork-clone-tooling-repo-and-add-phptodofolder.png)
+
+On you Jenkins server, install PHP and its dependencies
+
+$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
+
+$ sudo yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+
+$ sudo dnf install dnf-utils -y
+
+$ sudo dnf module reset php -y
+
+$ sudo dnf module install php:remi-7.4
+
+$ sudo dnf update -y
+
+$ sudo yum install wget php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
+
+$ php -v
+
+![Alt text](Images_P14/install-and-enable-php.png)
+
+Install composer
+
+$ curl -sS https://getcomposer.org/installer | php
+
+$ sudo mv composer.phar /usr/bin/composer
+
+
+Install plot plugin and artifactory plugin. We will use plot plugin to display tests reports and code coverage information while the Artifactory plugin will be used to easily upload code artifacts into an Artifactory server.
+
+![Alt text](Images_P14/install-plot-and-artifactory-plugin.png)
 
