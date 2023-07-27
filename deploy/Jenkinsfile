@@ -3,7 +3,7 @@ pipeline {
    agent any
 
    environment {
-    ANSIBLE_CONFIG='${WORKSPACE}Project-14_main/ansible-config-mgt/deploy/ansible.cfg'
+    ANSIBLE_CONFIG='${WORKSPACE}/deploy/ansible.cfg'
    }
 
   parameters {
@@ -23,22 +23,22 @@ pipeline {
 
     stage('Checkout SCM') {
       steps {
-        git branch: 'main', url: 'https://github.com/AbisolaQ/Project-14.git'
+        git branch: 'main', url: 'https://github.com/AbisolaQ/ansible-config-mgtP14.git'
       }
     }
 
     stage('Setting Roles Path in the Ansible.cfg File') {
 
       steps {
-        sh 'echo /var/lib/jenkins/workspace/Project-14_main/ansible-config-mgt/deploy/ansible.cfg'
-        sh 'sed -i "3 a roles_path=/var/lib/jenkins/workspace/main/roles" /var/lib/jenkins/workspace/4_feature_jenkinspipeline-stages/ansible-config-mgt/deploy/ansible.cfg'
+        sh 'echo ${WORKSPACE}'
+        sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/ansible.cfg'
       }
     }
 
     stage('Run Ansible Playbook') {
 
       steps {
-        ansiblePlaybook become: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'ansible-config-mgt/playbooks/site.yml'
+        ansiblePlaybook colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml'
 
       }
     }
@@ -52,9 +52,3 @@ pipeline {
      
    }
 }
-
-
-//  sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}Project-14_main/ansible-config-mgt/deploy/ansible.cfg'
-//  ansiblePlaybook become: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible-config-mgt/inventory/dev', playbook: 'ansible-config-mgt/playbooks/site.yml'
-
-      
