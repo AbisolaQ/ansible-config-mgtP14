@@ -233,5 +233,16 @@ username-admin Password=password
 
 In Jenkins UI configure Artifactory to work with jenkins
 ![Alt text](Images_P14/jfrog-config.png)
+![Alt text](Images_P14/Test-jfrog-connection.png)
 
-Phase 2
+Integrate Artifactory repository with Jenkins
+
+Create a Jenkinsfile in the PHP-Todo repository.
+
+Using Blue Ocean, create a multibranch Jenkins pipeline.
+
+On the database server, create database and user ansible-config-mgt and create a database for the PHP-Todo.
+
+Configure the defaults/main.yml in the mysql roles to add a database - 'homestead' and user - 'homestead'.
+
+Replace the user's host with the jenkins private IP address.
