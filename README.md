@@ -260,4 +260,22 @@ $ sudo mysql
 mysql> show databases;
 ![Alt text](Images_P14/confirm-db-user.png)
 
-create a newpipeline for php-todo on jenkins
+
+
+Install mysql client on the jenkins server so the jenkins can remotely log in to the database
+
+$ sudo yum install mysql -y
+![Alt text](Images_P14/download-mysql-on-jenkins.png)
+![Alt text](<Images_P14/set bind address and restart mysql server.png>)
+.
+
+DB_HOST=172.31.23.171
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=sePret^i
+DB_CONNECTION=mysql
+DB_PORT=3306
+
+![Alt text](<Images_P14/update and connect to-db.png>)
+![Alt text](<Images_P14/confirm you can connect to the db from jenkins.png>)
+
