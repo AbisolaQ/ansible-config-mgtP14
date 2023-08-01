@@ -258,3 +258,6 @@ To conifirm that homestead database was created, log into the instance and run t
 $ sudo mysql
 
 mysql> show databases;
+![Alt text](Images_P14/confirm-db-user.png)
+
+create a newpipeline for php-todo on jenkins
