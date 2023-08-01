@@ -279,3 +279,38 @@ DB_PORT=3306
 ![Alt text](<Images_P14/update and connect to-db.png>)
 ![Alt text](<Images_P14/confirm you can connect to the db from jenkins.png>)
 
+Push to github and build to create tables
+![Alt text](<Images_P14/push and build to create tables.png>)
+
+In the Prepare Dependencies section, the required file by PHP is .env so we are renaming .env.sample to .env.
+
+Composer is used by PHP to install all the dependent libraries used by the application. php artisan uses the .env file to setup the required database objects.
+
+After successful run of this step, login to the database, run show tables and you will see the tables being created.
+
+$ mysql -h <database-IP-address> -u homestead -p
+![Alt text](<Images_P14/tables created.png>)
+
+Update the Jenkinsfile to include Unit tests step
+
+ stage('Execute Unit Tests') {
+      steps {
+             sh './vendor/bin/phpunit'
+      }
+
+
+Code Quality Analysis
+
+For PHP the most commonly tool used for code quality analysis is phploc.
+
+The data produced by phploc can be ploted onto graphs in Jenkins.
+
+Add the code analysis step in Jenkinsfile. The output of the data will be saved in build/logs/phploc.csv file.
+
+Install phploc
+
+$ sudo dnf --enablerepo=remi install php-phpunit-phploc
+
+$ wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+
+$ sudo chmod +x phphunit
