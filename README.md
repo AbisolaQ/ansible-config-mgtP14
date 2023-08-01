@@ -246,3 +246,15 @@ On the database server, create database and user ansible-config-mgt and create a
 Configure the defaults/main.yml in the mysql roles to add a database - 'homestead' and user - 'homestead'.
 
 Replace the user's host with the jenkins private IP address.
+![Alt text](Images_P14/edit-db-roles.png)
+
+edit db-playbook
+![Alt text](Images_P14/install-db.png)
+
+Push and run using build with parameters on inventory/dev
+![Alt text](Images_P14/push-build-with-parameterswithdev.png)
+
+To conifirm that homestead database was created, log into the instance and run the command
+$ sudo mysql
+
+mysql> show databases;
