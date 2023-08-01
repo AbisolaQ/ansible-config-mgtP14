@@ -208,3 +208,30 @@ Install plot plugin and artifactory plugin. We will use plot plugin to display t
 
 ![Alt text](Images_P14/install-plot-and-artifactory-plugin.png)
 
+Make sure to edit the inbound rules
+![Alt text](Images_P14/edit-inbound-security-group-rule.png)
+
+Edit inventoryfile, ci environment, static assignment, artifactory file, playbook site.yml file
+![Alt text](Images_P14/edit-ci.png)
+![Alt text](Images_P14/update-inventory-file.png)
+![Alt text](Images_P14/update-static-assignment-artifactoryyml.png)
+![Alt text](Images_P14/update-playbook-site-yml-file.png)
+
+Run ansible playbook to install Artifactory
+![Alt text](Images_P14/Ansible-Artifactory-installation-success.png)
+
+We can now use our IP address to access the artifactory
+![Alt text](Images_P14/access-artifactory-ipaddress.png)
+
+Setup the artifactory and create a repo named queen
+username-admin Password=password
+![Alt text](Images_P14/login-to-jfrog.png)
+![Alt text](Images_P14/create-jfrog-repo.png)
+![Alt text](Images_P14/select-generic-repo.png)
+![Alt text](Images_P14/creating-repo-a.png)
+
+
+In Jenkins UI configure Artifactory to work with jenkins
+![Alt text](Images_P14/jfrog-config.png)
+
+Phase 2
