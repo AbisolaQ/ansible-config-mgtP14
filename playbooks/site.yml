@@ -31,12 +31,12 @@
 # - name: Artifactory assignment
 #   import_playbook: ../static-assignments/artifactory.yml
 
-- name: Deploying Todo Application
-  hosts: todo
-- name: Deploy assignment
-  import_playbook: ../static-assignments/deployment.yml
-
-# - name: Installing Sonarqube
+# - name: Deploying Todo Application
 #   hosts: todo
-# - name: Sonarqube assignment
-#   import_playbook: ../static-assignments/sonarqube.yml
+# - name: Deploy assignment
+#   import_playbook: ../static-assignments/deployment.yml
+
+- name: Installing Sonarqube
+  hosts: todo
+- name: Sonarqube assignment
+  import_playbook: ../static-assignments/sonarqube.yml

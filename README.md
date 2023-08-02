@@ -385,3 +385,17 @@ So we will create an instance for the TODO server and put the IP address in inve
 
 
 write an ansible script for deployment to the server in the ansible-config-mgt.
+
+The build job used in this step tells Jenkins to start another job. In this case it is the ansible-config-mgt job, and we are targeting the main branch hence, we have ansible-config/main. Since the Ansible project requires parameters to be passed in, we have included this by specifying the parameters section. The name of the parameter is env and its value is dev. Meaning, deploy to the Development environment.
+
+Even though we have implemented Unit Tests and Code Coverage Analysis with phpunit and phploc, we still need to implement Quality Gate to ensure that ONLY code with the required code coverage, and other quality standards make it through to the environments.
+
+To achieve this, we need to configure SonarQube – An open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities.
+
+SONARQUBE INSTALLATION
+
+SonarQube is a tool that can be used to create quality gates for software projects, and the ultimate goal is to be able to ship only quality software code.
+
+To install sonarqube
+
+First, create an instance and then set up roles that will automate the installation of sonarqube. This role works with a Postgresql database.
