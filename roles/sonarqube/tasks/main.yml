@@ -71,3 +71,10 @@
     name: sonar
     state: started
     enabled: yes
+
+- name: Install acl
+  apt:
+    state: latest
+    update_cache: true
+    pkg:
+      - acl
