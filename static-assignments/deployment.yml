@@ -52,7 +52,7 @@
         url: http://34.201.60.89:8082/artifactory/admin/php-todo
         dest: /home/ec2-user/
         url_username: admin
-        url_password: cmVmdGtuOjAxOjE3MTEyMjQ3ODA6aWtCcE5XaFJRaWRJbkYzZU1xMGt0eU1sT3pO
+        url_password: cmVmdGtuOjAxOjE3MjI1NTM4MjM6bXZLV1dueXdoeUZoQ2E5am04ZllQVThZQW9G
 
 
     - name: Unzip the Artifacts
