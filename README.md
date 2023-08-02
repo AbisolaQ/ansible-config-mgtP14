@@ -379,3 +379,9 @@ stage ('Upload Artifact to Artifactory') {
 
 }
 
+The build job used in this step tells Jenkins to start another job. In this case it is the ansible-project job, and we are targeting the main branch. Hence, we have ansible-project/main. Since the Ansible project requires parameters to be passed in, we have included this by specifying the parameters section. The name of the parameter is env and its value is dev. Meaning, deploy to the Development environment.
+
+So we will create an instance for the TODO server and put the IP address in inventory/dev
+
+
+write an ansible script for deployment to the server in the ansible-config-mgt.
