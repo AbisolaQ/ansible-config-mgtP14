@@ -56,7 +56,14 @@
     state: present
     allow_unauthenticated: yes
 
-
+ - name: Install required packaged
+   apt:
+     name: "{{ item }}"
+     state: present
+      with_items:
+        - acl
+        - python3-pip
+        
 - import_tasks: postgresql.yml
 
 - name: Ensure group sonar exists
