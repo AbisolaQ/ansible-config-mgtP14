@@ -399,3 +399,20 @@ SonarQube is a tool that can be used to create quality gates for software projec
 To install sonarqube
 
 First, create an instance and then set up roles that will automate the installation of sonarqube. This role works with a Postgresql database.
+Install Access Control List - ACL package for the for postgresdb permissions if the job fails to run.
+
+This but fail but it will enable us access the /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf/ directory where we will nedd to find the sonar-scanner.properties.
+
+Open sonar-scanner.properties file
+
+$ sudo vi cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf/sonar-scanner.properties
+
+Add configuration related to PHP-Todo project
+
+sonar.host.url=http://<SonarQube-Server-IP-address>:9000
+sonar.projectKey=php-todo
+#----- Default source code encoding
+sonar.sourceEncoding=UTF-8
+sonar.php.exclusions=**/vendor/**
+sonar.php.coverage.reportPaths=build/logs/clover.xml
+sonar.php.tests.reportPath=build/logs/junit.xml
