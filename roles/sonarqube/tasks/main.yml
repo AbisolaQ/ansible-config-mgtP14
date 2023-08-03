@@ -1,5 +1,12 @@
 ---
 # tasks file for sonarqube
+- name: Install additional packages
+  apt:
+    name:
+      - sudo
+      - acl
+    state: present
+
 - name: set max_map
   become: true
   command: sysctl -w vm.max_map_count=262144
@@ -70,10 +77,3 @@
     name: sonar
     state: started
     enabled: yes
-
-- name: Install acl
-  apt:
-    state: latest
-    update_cache: true
-    pkg:
-      - acl
