@@ -120,18 +120,18 @@ mysql_users:
      priv: '*.*:ALL,GRANT'
 
 # # Databases.
-mysql_databases:
-   - name: tooling
-     collation: utf8_general_ci
-     encoding: utf8
-     replicate: 1
+# mysql_databases:
+#    - name: tooling
+#      collation: utf8_general_ci
+#      encoding: utf8
+#      replicate: 1
 
-# Users.
-mysql_users:
-   - name: webaccess
-     host: 0.0.0.0
-     password: Sa4la2xa#
-     priv: '*.*:ALL,GRANT'
+# # Users.
+# mysql_users:
+#    - name: webaccess
+#      host: 0.0.0.0
+#      password: Sa4la2xa#
+#      priv: '*.*:ALL,GRANT'
 
 mysql_disable_log_bin: false
 
