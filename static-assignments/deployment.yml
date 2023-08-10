@@ -49,10 +49,10 @@
 
     - name: Download the artifact
       get_url:
-        url: http://34.201.60.89:8082/artifactory/admin/php-todo
+        url: http://3.86.182.152:8082/artifactory/admin/php-todo
         dest: /home/ec2-user/
         url_username: admin
-        url_password: cmVmdGtuOjAxOjE3MjI1NTM4MjM6bXZLV1dueXdoeUZoQ2E5am04ZllQVThZQW9G
+        url_password: cmVmdGtuOjAxOjE3MjMyMzUyMDk6UThLa2QyQ016eloyRHNhVFo4YTJmQlJySGYw
 
 
     - name: Unzip the Artifacts

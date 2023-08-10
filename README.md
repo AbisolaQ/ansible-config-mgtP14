@@ -269,12 +269,51 @@ $ sudo yum install mysql -y
 ![Alt text](<Images_P14/set bind address and restart mysql server.png>)
 .
 
-DB_HOST=172.31.23.171
+Update the database connectivity requirements in the file _.env.sample.
+
+DB_HOST=172.31.85.92
 DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=sePret^i
 DB_CONNECTION=mysql
 DB_PORT=3306
+Go into the PHP-Todo
+
+$ cd PHP-Todo
+
+Update Jenkinsfile in the PHP-Todo with the following
+
+pipeline {
+    agent any
+
+  stages {
+
+     stage("Initial cleanup") {
+          steps {
+            dir("${WORKSPACE}") {
+              deleteDir()
+            }
+          }
+        }
+
+    stage('Checkout SCM') {
+      steps {
+            git branch: 'main', url: 'https://github.com/darey-devops/php-todo.git'
+      }
+    }
+
+    stage('Prepare Dependencies') {
+      steps {
+             sh 'mv .env.sample .env'
+             sh 'composer install'
+             sh 'php artisan migrate'
+             sh 'php artisan db:seed'
+             sh 'php artisan key:generate'
+      }
+    }
+  }
+}
+Push to github and build.
 
 ![Alt text](<Images_P14/update and connect to-db.png>)
 ![Alt text](<Images_P14/confirm you can connect to the db from jenkins.png>)
