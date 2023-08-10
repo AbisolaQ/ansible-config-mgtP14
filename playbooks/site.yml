@@ -37,6 +37,6 @@
 #   import_playbook: ../static-assignments/deployment.yml
 
 - name: Installing Sonarqube
-  hosts: todo
+  hosts: sonarqube
 - name: Sonarqube assignment
   import_playbook: ../static-assignments/sonarqube.yml
