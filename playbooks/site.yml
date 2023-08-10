@@ -16,15 +16,15 @@
 # - import_playbook: ../static-assignments/loadbalancers.yml
 #   when: load_balancer_is_required 
 
-# - name: installing nginx
-#   hosts: nginx
-# - name: nginx assignment
-#   import_playbook: ../static-assignments/nginx.yml
+- name: installing nginx
+  hosts: nginx
+- name: nginx assignment
+  import_playbook: ../static-assignments/nginx.yml
 
-# - name: installing database
-#   hosts: db
-# - name: db assignment
-#   import_playbook: ../static-assignments/db.yml
+- name: installing database
+  hosts: db
+- name: db assignment
+  import_playbook: ../static-assignments/db.yml
 
 # - name: installing artifactory
 #   hosts: artifactory
@@ -36,7 +36,7 @@
 # - name: Deploy assignment
 #   import_playbook: ../static-assignments/deployment.yml
 
-- name: Installing Sonarqube
-  hosts: todo
-- name: Sonarqube assignment
-  import_playbook: ../static-assignments/sonarqube.yml
+# - name: Installing Sonarqube
+#   hosts: todo
+# - name: Sonarqube assignment
+#   import_playbook: ../static-assignments/sonarqube.yml
