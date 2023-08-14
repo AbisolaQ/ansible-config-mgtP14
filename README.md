@@ -431,6 +431,49 @@ Even though we have implemented Unit Tests and Code Coverage Analysis with phpun
 
 To achieve this, we need to configure SonarQube – An open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities.
 
+![Alt text](<Images_P14/plot menu.png>)
+![Alt text](Images_P14/upd-jenkins-file-to-upload-to-artifactory.png)
+![Alt text](Images_P14/deploy-to-dev1.png) 
+![Alt text](Images_P14/deploy-to-dev.png)
+![Alt text](<Images_P14/Check the artifactory for the deployed artifact.png>) 
+![Alt text](<Images_P14/set up todo instance.png>) 
+![Alt text](Images_P14/edit-site.yml.png)
+![Alt text](<Images_P14/create -deployment.yml.png>) 
+![Alt text](Images_P14/generatecodesnippet.png)
+![Alt text](Images_P14/upd-deployment.yml.png)
+![Alt text](<Images_P14/run deployment.yml.png>)
+![Alt text](Images_P14/sonarqubeinstance.png)
+![Alt text](<Images_P14/sonarqube-role-from ansible galaxy.png>)
+![Alt text](<Images_P14/edit sonarqube-static assignment.png>) 
+![Alt text](<Images_P14/install sonarqube.png>) 
+![Alt text](<Images_P14/sonar installed.png>) 
+![Alt text](<Images_P14/stall sonarqube scanner.png>) 
+![Alt text](Images_P14/configure-sonar.png) 
+![Alt text](<Images_P14/generate token.png>)
+![Alt text](Images_P14/webhooksonar1.png)
+![Alt text](<Images_P14/Configure Quality Gate Jenkins Webhook.png>)
+![Alt text](<Images_P14/Setup SonarQube scanner from Jenkins – Global Tool Configuration.png>) 
+![Alt text](<Images_P14/Update Jenkins Pipeline to include SonarQube scanning and Quality Gate.png>)
+![Alt text](<Images_P14/Push to github and run the build..png>)
+![Alt text](<Images_P14/Add configuration related to php-todo project.png>)
+![Alt text](<Images_P14/Open sonar-scanner.properties file.png>)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 SONARQUBE INSTALLATION
 
 SonarQube is a tool that can be used to create quality gates for software projects, and the ultimate goal is to be able to ship only quality software code.
